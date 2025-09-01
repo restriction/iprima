@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  cypress:
+    image: cypress/included:latest
+    container_name: prima-e2e-tests
+    working_dir: /e2e
+    environment:
+      - CYPRESS_TEST_EMAIL=${CYPRESS_TEST_EMAIL}
+      - CYPRESS_TEST_PASSWORD=${CYPRESS_TEST_PASSWORD}
+      - CYPRESS_baseUrl=https://www.iprima.cz/
+      - DISPLAY=:99
+    volumes:
+      - ./:/e2e
+      - /dev/shm:/dev/shm
+    command: >
+      bash -c "
+        npm ci &&
+        npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true
+      "
+    networks:
+      - cypress-network
+
+  # Optional: Run tests with different browsers in parallel
+  cypress-chrome:
+    image: cypress/browsers:latest
+    container_name: prima-e2e-chrome
+    working_dir: /e2e
+    environment:
+      - CYPRESS_TEST_EMAIL=${CYPRESS_TEST_EMAIL}
+      - CYPRESS_TEST_PASSWORD=${CYPRESS_TEST_PASSWORD}
+      - CYPRESS_baseUrl=https://www.iprima.cz/
+    volumes:
+      - ./:/e2e
+      - /dev/shm:/dev/shm
+    command: >
+      bash -c "
+        npm ci &&
+        npx cypress run --browser chrome --reporter mochawesome --reporter-options reportDir=cypress/reports/chrome,overwrite=false,html=true,json=true
+      "
+    networks:
+      - cypress-network
+
+  cypress-firefox:
+    image: cypress/browsers:latest
+    container_name: prima-e2e-firefox  
+    working_dir: /e2e
+    environment:
+      - CYPRESS_TEST_EMAIL=${CYPRESS_TEST_EMAIL}
+      - CYPRESS_TEST_PASSWORD=${CYPRESS_TEST_PASSWORD}
+      - CYPRESS_baseUrl=https://www.iprima.cz/
+    volumes:
+      - ./:/e2e
+      - /dev/shm:/dev/shm
+    command: >
+      bash -c "
+        npm ci &&
+        npx cypress run --browser firefox --reporter mochawesome --reporter-options reportDir=cypress/reports/firefox,overwrite=false,html=true,json=true
+      "
+    networks:
+      - cypress-network
+
+networks:
+  cypress-network:
+    driver: bridge

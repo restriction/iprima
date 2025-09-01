@@ -1,0 +1,69 @@
+{
+  "profiles": {
+    "adult_male": {
+      "name": "AdultMale_Test",
+      "avatarId": "kun",
+      "gender": "M",
+      "birthYear": 1990,
+      "ageRating": null
+    },
+    "adult_female": {
+      "name": "AdultFemale_Test", 
+      "avatarId": "01",
+      "gender": "F",
+      "birthYear": 1985,
+      "ageRating": null
+    },
+    "kid_male": {
+      "name": "KidMale_Test",
+      "avatarId": "delfin",
+      "gender": "M", 
+      "birthYear": 2015,
+      "ageRating": "0_11"
+    },
+    "kid_female": {
+      "name": "KidFemale_Test",
+      "avatarId": "delfin",
+      "gender": "F",
+      "birthYear": 2018,
+      "ageRating": "0_11"
+    },
+    "edge_cases": {
+      "long_name": "ThisIsAVeryLongProfileNameToTestMaximumCharacterLimitsAndBoundaryConditions",
+      "special_chars": "Test-Profile_123!",
+      "unicode": "Тест Профиль",
+      "empty_name": "",
+      "whitespace_only": "   "
+    }
+  },
+  "avatars": {
+    "adult": {
+      "male": ["kun", "01", "02"],
+      "female": ["01", "02", "03"]
+    },
+    "kid": {
+      "male": ["delfin"],
+      "female": ["delfin"]
+    }
+  },
+  "age_ratings": {
+    "adult": null,
+    "kid": "0_11"
+  },
+  "api": {
+    "timeouts": {
+      "default": 10000,
+      "auth": 15000,
+      "profile_operations": 20000
+    },
+    "retry": {
+      "attempts": 3,
+      "delay": 1000
+    }
+  },
+  "test_config": {
+    "cleanup_timeout": 30000,
+    "max_test_profiles": 10,
+    "profile_name_prefix": "E2E_Test"
+  }
+}

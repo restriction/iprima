@@ -1,0 +1,40 @@
+{
+  "name": "prima-profile-e2e-tests",
+  "version": "1.0.0",
+  "description": "Prima+ Profile Creation E2E Test Automation Suite",
+  "author": "Iprima",
+  "license": "ISC",
+  "scripts": {
+    "test": "cypress run",
+    "test:headless": "cypress run --headless",
+    "test:headed": "cypress run --headed --browser chrome",
+    "test:chrome": "cypress run --browser chrome",
+    "test:firefox": "cypress run --browser firefox",
+    "test:edge": "cypress run --browser edge",
+    "test:open": "cypress open",
+    "test:profile": "cypress run --spec 'cypress/e2e/profile.cy.ts'",
+    "test:api": "cypress run --spec 'cypress/e2e/profile.cy.ts'",
+    "test:ui": "cypress run --spec 'cypress/e2e/ui-profile.cy.ts'",
+    "test:ui:open": "cypress open",
+    "test:ui:simple": "cypress run --spec 'cypress/e2e/simple-ui.cy.ts'",
+    "test:ui:simple:open": "cypress open",
+    "test:all": "cypress run --spec 'cypress/e2e/*.cy.ts'",
+    "test:record": "cypress run --record",
+    "test:report": "cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true",
+    "test:ci": "cypress run --reporter junit --reporter-options mochaFile=results/test-results.xml"
+  },
+  "keywords": [
+    "cypress",
+    "e2e",
+    "testing",
+    "prima",
+    "automation",
+    "qa"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.19.9",
+    "cypress": "^13.15.0",
+    "mochawesome": "^7.1.3",
+    "typescript": "^5.9.2"
+  }
+}
