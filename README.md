@@ -34,7 +34,7 @@ This test suite provides comprehensive validation of profile management function
 ## Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/restriction/iprima
 cd iprima
 npm install
 ```
