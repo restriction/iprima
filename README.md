@@ -35,7 +35,7 @@ This test suite provides comprehensive validation of profile management function
 
 ```bash
 git clone <repository-url>
-cd iprima-interview-cypress-main
+cd iprima
 npm install
 ```
 
