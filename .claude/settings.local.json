@@ -8,7 +8,8 @@
       "Bash(npm run test:profile:*)",
       "Bash(npm run test:open:*)",
       "Bash(npm install:*)",
-      "Bash(npm run test:ui:simple:*)"
+      "Bash(npm run test:ui:simple:*)",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": []
